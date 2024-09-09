@@ -1,0 +1,168 @@
+
+/* --------------       Material Icons      ------------------------ */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url('../lib/Icons/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
+    .material-icons.md-12 { font-size: 12px; }
+    .material-icons.md-14 { font-size: 14px; }
+    .material-icons.md-16 { font-size: 16px; }
+    .material-icons.md-18 { font-size: 18px; }
+    .material-icons.md-20 { font-size: 20px; }
+    .material-icons.md-22 { font-size: 22px; }
+    .material-icons.md-24 { font-size: 24px; }
+    .material-icons.md-26 { font-size: 26px; }
+    .material-icons.md-28 { font-size: 28px; }
+    .material-icons.md-30 { font-size: 30px; }
+    .material-icons.md-32 { font-size: 32px; }
+    .material-icons.md-34 { font-size: 34px; }
+    .material-icons.md-36 { font-size: 36px; }
+    .material-icons.md-38 { font-size: 38px; }
+    .material-icons.md-40 { font-size: 40px; }
+    .material-icons.md-42 { font-size: 42px; }
+    .material-icons.md-44 { font-size: 44px; }
+    .material-icons.md-46 { font-size: 46px; }
+    .material-icons.md-48 { font-size: 48px; }
+/* --------------------------------------------------------------- */
+
+
+html, body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+body { }
+    body::after {
+        content: "";
+        background: url("../images/Schematic_KLON.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        opacity: 0.08;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
+
+
+/* -----------------    Main Image Lists      ------------------- */
+.ee-main-list {
+    overflow-x: scroll;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border: solid 1px #E6E6E6;
+}
+.ee-main-list-wrapper {
+    background-color: white;
+    margin: 0px 3px 10px 3px;
+    width: 150px;
+    border: solid 1px #E6EEff;
+}
+    .ee-main-list-wrapper:hover {
+        border: solid 1px #CCDDFF;
+    }
+.ee-main-list-header {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    padding: 2px 2px 2px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+.ee-main-list-image {
+    text-align: center;
+    padding-top: 3px;
+}
+.ee-main-list-price {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    padding: 2px 2px 2px 5px;
+    width: 100%;
+}
+.ee-main-list-condition {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    padding: 2px 2px 2px 5px;
+    width: 100%;
+}
+/* ------------------------------------------------------*/
+
+
+
+/* ---------------      Other           ------------------ */
+.ee-no-record {
+    font-weight: 700;
+    font-size: 22px;
+    color: darkred !important;
+}
+/* ------------------------------------------------------- */
+
+
+
+/* ---------------      Product List    ------------------ */
+
+/* ------------------------------------------------------- */
+
+
+/* -----------------    Blazor error      ------------------- */
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+.blazor-error-boundary {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIG92ZXJmbG93PSJoaWRkZW4iPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDAiPjxyZWN0IHg9IjIzNSIgeT0iNTEiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMzUgLTUxKSI+PHBhdGggZD0iTTI2My41MDYgNTFDMjY0LjcxNyA1MSAyNjUuODEzIDUxLjQ4MzcgMjY2LjYwNiA1Mi4yNjU4TDI2Ny4wNTIgNTIuNzk4NyAyNjcuNTM5IDUzLjYyODMgMjkwLjE4NSA5Mi4xODMxIDI5MC41NDUgOTIuNzk1IDI5MC42NTYgOTIuOTk2QzI5MC44NzcgOTMuNTEzIDI5MSA5NC4wODE1IDI5MSA5NC42NzgyIDI5MSA5Ny4wNjUxIDI4OS4wMzggOTkgMjg2LjYxNyA5OUwyNDAuMzgzIDk5QzIzNy45NjMgOTkgMjM2IDk3LjA2NTEgMjM2IDk0LjY3ODIgMjM2IDk0LjM3OTkgMjM2LjAzMSA5NC4wODg2IDIzNi4wODkgOTMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=) no-repeat 1rem/1.8rem, #b32121;
+    padding: 1rem 1rem 1rem 3.7rem;
+    color: white;
+}
+
+    .blazor-error-boundary::after {
+        content: "An error has occurred."
+    }
+/* ------------------------------------------------------*/
+
+

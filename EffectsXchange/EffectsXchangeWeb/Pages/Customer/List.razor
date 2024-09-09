@@ -1,0 +1,32 @@
+﻿@page "/customer/list"
+
+<MudPaper Elevation="4" Outlined="true">
+<MudToolBar Dense="true">
+    <MudText Class="mr-5">Customers</MudText>
+    <MudIconButton Icon="@Icons.Material.Outlined.Menu" Size="Size.Small" Color="Color.Inherit" Class="mr-5" />
+    <MudIconButton Icon="@Icons.Material.Outlined.Add" Size="Size.Small" />
+    <MudIconButton Icon="@Icons.Material.Outlined.Edit" Size="Size.Small" />
+    <MudIconButton Icon="@Icons.Material.Outlined.Remove" Color="Color.Inherit" Size="Size.Small" />
+    <MudIconButton Icon="@Icons.Material.Outlined.Settings" Color="Color.Inherit" Size="Size.Small" />
+    <MudSpacer />
+    <MudIconButton Icon="@Icons.Material.Outlined.Notifications" Size="Size.Small" />
+    <MudIconButton Icon="@Icons.Material.Outlined.PushPin" Size="Size.Small" />
+    <MudIconButton Icon="@Icons.Material.Outlined.PeopleAlt" Size="Size.Small" />
+    <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" Size="Size.Small" />
+</MudToolBar>
+</MudPaper>
+@if (HasLoaded) {
+<MudPaper Elevation="4" Outlined="true" Class="pa-3 mt-3">
+    <MudDataGrid Items="@CustomerList" Dense="true" SortMode="SortMode.Single">
+        <Columns>
+            <PropertyColumn Property="x => x.LastName" Title="Last" />
+            <PropertyColumn Property="x => x.MiddleName" Title="Middle Name" />
+            <PropertyColumn Property="x => x.LastName" Title="Last Name" />
+            <PropertyColumn Property="x => x.CreatedBy" Title="Customer Since" />
+        </Columns>
+        <PagerContent>
+            <MudDataGridPager T="CustomerModel" />
+        </PagerContent>
+    </MudDataGrid>
+</MudPaper>
+}

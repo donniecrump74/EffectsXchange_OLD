@@ -1,0 +1,115 @@
+﻿@inherits LayoutComponentBase
+@inject ProtectedLocalStorage Storage
+@inject ISecurityService SecurityService
+@inject NavigationManager Navigation
+@inject IDialogService Dialog
+
+<PageTitle>Effects Xchange</PageTitle>
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<style>
+    .top-searchbox {
+        width: 225px;
+        height: 30px;
+        border-radius: 4px;
+        background-color: white;
+        outline: none;
+        padding: 0px 5px 0px 5px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+    }
+
+    .top-searchbutton {
+        height: 30px;
+        border-radius: 4px;
+        font-weight: 400;
+        font-size: 16px;
+        border: solid 1px white;
+        padding: 0px 10px 0px 10px;
+    }
+
+    .top-searchbutton:hover {
+        background-color: black;
+    }
+
+</style>
+
+<MudLayout>
+    <MudAppBar Elevation="1" Dense="true" Color="Color.Dark" Fixed="true" Style="min-width:1100px">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
+        <MudLink Href="/" Class="pt-2"><MudImage Src="/images/smalllogo.png" Alt="Home" Class="ml-5 mr-5" /></MudLink>
+
+        <MudMenu StartIcon="@Icons.Material.Filled.Tune"
+                 ActivationEvent="@MouseEvent.MouseOver"
+                 Dense="true"
+                 Label="Pedals"
+                 Color="Color.Inherit"
+                 AnchorOrigin="Origin.BottomLeft"
+                 TransformOrigin="Origin.TopLeft"
+                 Style="white-space:nowrap;">
+            @foreach (var item in CategoryList.Where(c => c.Type == 1).OrderBy(c => c.SortOrder)) {
+                string url = $"/Product/{item.Type}/{item.Id}";
+                <MudMenuItem Href="@url" Style="min-width:175px;" Class="pt-0 pb-0 mt-0 mb-0">@item.Name</MudMenuItem>
+            }
+        </MudMenu>
+        <MudMenu StartIcon="@Icons.Material.Filled.RepeatOne"
+                 ActivationEvent="@MouseEvent.MouseOver"
+                 Dense="true"
+                 Label="Multi-Effects"
+                 Color="Color.Inherit"
+                 AnchorOrigin="Origin.BottomLeft"
+                 TransformOrigin="Origin.TopLeft"
+                 Style="white-space:nowrap;">
+            @foreach (var item in CategoryList.Where(c => c.Type == 2).OrderBy(c => c.SortOrder)) {
+                string url = $"/Product/{item.Type}/{item.Id}";
+                <MudMenuItem Href="@url" Style="min-width:175px;" Class="pt-0 pb-0 mt-0 mb-0">@item.Name</MudMenuItem>
+            }
+        </MudMenu>
+        <MudSpacer />
+        <div style="margin-right:10px;">
+            <InputText @bind-Value="SearchString" class="top-searchbox" />
+        </div>
+        <div style="margin-right:20px;">
+            <button type="button" class="top-searchbutton">Search</button>
+        </div>
+        @if (UserId == null) {
+            <MudNavLink IconColor="Color.Inherit" Href="/Login" Match="NavLinkMatch.All" Style="max-width:min-content;" Icon="@Icons.Material.Filled.Login">Login</MudNavLink>
+        } else {
+            <MudNavLink IconColor="Color.Inherit" Href="/Customer/" Style="max-width:min-content;" Icon="@Icons.Material.Filled.AccountCircle">Account</MudNavLink>
+            <MudNavLink IconColor="Color.Inherit" OnClick="Logout" Style="max-width:min-content;" Icon="@Icons.Material.Filled.Logout">Logout</MudNavLink>
+        }
+    </MudAppBar>
+    <MudDrawer @bind-Open="@SideBarOpen" Color="Color.Dark" ClipMode="DrawerClipMode.Never" Elevation="1" Variant="@DrawerVariant.Persistent" Width="175px">
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h6">&nbsp;</MudText>
+        </MudDrawerHeader>
+        <MudNavMenu Color="Color.Inherit" Dense="true">
+            <MudNavLink Href="/Watching" IconColor="Color.Inherit" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.WatchLater">Watching</MudNavLink>
+            <MudNavLink Href="/Community/" IconColor="Color.Inherit" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Forum">Community</MudNavLink>
+            <MudNavLink Href="/EffectsDatabase/" IconColor="Color.Inherit" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Storage">Effects Database</MudNavLink>
+        </MudNavMenu>
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer Style="padding:3px 3px;" MaxWidth="MaxWidth.False" Class="pa-0 ma-0">
+            <CascadingValue Value="@UserId" Name="UserId">
+                <CascadingValue Value="@UserFirstName" Name="UserFirstName">
+                    <CascadingValue Value="@UserMiddleName" Name="UserMiddleName">
+                        <CascadingValue Value="@UserLastName" Name="UserLastName">
+                            <CascadingValue Value="@UserEmail" Name="UserEmail">
+                                <CascadingValue Value="@BrowserHeight" Name="BrowserHeight">
+                                    <CascadingValue Value="@BrowserWidth" Name="BrowserWidth">
+                                        @Body
+                                    </CascadingValue>
+                                </CascadingValue>
+                            </CascadingValue>
+                        </CascadingValue>
+                    </CascadingValue>
+                </CascadingValue>
+            </CascadingValue>
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>

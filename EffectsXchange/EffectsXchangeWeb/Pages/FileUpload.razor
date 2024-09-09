@@ -1,0 +1,31 @@
+﻿@page "/FileUpload"
+@inject IApplicationService ApplicationService;
+
+<MudFileUpload T="IBrowserFile" FilesChanged="UploadFiles">
+    <ButtonTemplate>
+        <MudButton HtmlTag="label"
+                   Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   StartIcon="@Icons.Material.Filled.CloudUpload"
+                   for="@context">
+            Upload Files
+        </MudButton>
+    </ButtonTemplate>
+</MudFileUpload>
+
+@code {
+    IList<IBrowserFile> files = new List<IBrowserFile>();
+    private async Task UploadFiles(IBrowserFile file) {
+        files.Add(file);
+
+        byte[] fileContent = new byte[file.Size];
+        var result = await file.OpenReadStream(file.Size).ReadAsync(fileContent, 0, (Int32)file.Size);
+
+        FileUploadModel fMod = new FileUploadModel();
+        fMod.File = fileContent;
+        fMod.Size = file.Size;
+        fMod.Name = file.Name;
+
+        await ApplicationService.FileUpload(fMod);
+    }
+}

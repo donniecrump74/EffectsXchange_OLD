@@ -1,0 +1,56 @@
+﻿
+
+.ee-product-name {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+.ee-product-description {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+.ee-product-itemid {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.ee-product-image-wrapper {
+    border: solid 1px green;
+    padding: 5px 5px;
+}
+.ee-product-image {
+    width: 200px;
+    height: 200px;
+}
+
+.ee-product-image-small-list {
+    display: inine-grid;
+    border: solid 1px green;
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.ee-product-image-small {
+    border: solid 1px blue;
+}
+    .ee-product-image-small img {
+        object-fit: contain;
+        overflow: hidden;
+        height: 100px;
+        width: 100px;
+    }
+
+
+
+.ee-product-price {
+    font-family: sans-serif, 'Microsoft Sans Serif', serif;
+    font-weight: 700;
+    color: darkred;
+    font-size: 46px;
+    text-align: right;
+    white-space: nowrap;
+}

@@ -1,0 +1,81 @@
+﻿@page "/ProductDetail/{Id:long}"
+
+@if (!IsLoading) {
+    <MudPaper MaxWidth="800px" Class="mx-auto mt-10 pa-2" Elevation="3">
+        <MudGrid Spacing="0">
+            <MudItem Class="my-0" xs="12"><div class="ee-product-name">@ProductDetails.Name</div></MudItem>
+            <MudItem Class="mb-1" xs="12"><div class="ee-product-description">@ProductDetails.Description</div></MudItem>
+            <MudItem Class="my-0 d-flex justify-center" Style="border:solid 1px red" xs="8">
+                <MudGrid Spacing="0">
+                    <MudItem xs="12" Style="text-align:center;">
+                        <MudImage Fluid="true" Style="width:100%;height:auto;" Elevation="3" Class="rounded-lg" ObjectFit="ObjectFit.Contain" Src="@CurrentImage" />
+                    </MudItem>
+                    <MudItem Class="mt-2 d-flex" xs="12">
+                        @*<div class="ee-product-image-small-list">*@
+                            @foreach (var img in ProductImages) {
+                                string image = Program.ImageAsset + img.Folder + "/" + img.Image + img.ImageExtension;
+                            <div class="ee-product-image-small" @onclick="@(() => LoadImage(image))"><img src="@image" /></div>
+                                @*<MudImage @onclick="@(() => LoadImage(image))" Height="100" Width="100" Elevation="3" Fluid="true" Class="rounded-lg" ObjectFit="ObjectFit.Contain" Src="@image" />*@
+                            }
+                        @*</div>*@
+                    </MudItem>
+                </MudGrid>
+            </MudItem>
+            <MudItem Class="my-0" xs="4" Style="border:solid 1px green;">
+                <MudGrid Spacing="0">
+                    <MudItem Class="" xs="12"><div class="ee-product-price">@ProductDetails.Price.ToString("C")</div></MudItem>
+                    <MudItem Class="mt-2" xs="12"><div class="ee-product-itemid">Item # @ProductDetails.ItemId</div></MudItem>
+                    <MudItem Class="px-2 mt-4" xs="12"><MudButton ButtonType="ButtonType.Button" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.AddShoppingCart" Color="Color.Dark" FullWidth="true" Style="white-space:nowrap;">Add To Cart</MudButton></MudItem>
+                </MudGrid>
+            </MudItem>
+        </MudGrid>
+    </MudPaper>
+
+@*
+     align-self-center  
+    <MudPaper MaxWidth="800px" Class="mx-auto mt-10 pa-2" Elevation="3">
+        <MudGrid Spacing="0">
+            <MudItem Class="my-0" xs="12"><div class="ee-product-name">@ProductDetails.Name</div></MudItem>
+            <MudItem Class="mb-1" xs="12"><div class="ee-product-description">@ProductDetails.Description</div></MudItem>
+            <MudItem Class="my-0" xs="8">
+                <MudGrid Spacing="0">
+                    <MudItem xs="12" Style="text-align:center;"><MudImage Elevation="3" Style="max-height:500px;max-width:500px" ObjectPosition="ObjectPosition.Center" Class="rounded-lg" Fluid="true" ObjectFit="ObjectFit.Contain" Src="@CurrentImage" /></MudItem>
+                    <MudItem Class="mt-2" xs="12">
+                        <MudPaper Class="d-flex" Elevation="0" Outlined="false">
+                            @foreach (var img in ProductImages) {
+                                string image = Program.ImageAsset + img.Folder + "/" + img.Image + img.ImageExtension;
+                                <MudPaper Elevation="0" Class="mx-1">
+                                    <MudImage @onclick="@(() => LoadImage(image))" Height="100" Width="100" Elevation="3" Fluid="true" Class="rounded-lg" ObjectFit="ObjectFit.Contain" Src="@image" Style="max-height:100px;max-width:100px" />
+                                </MudPaper>
+                            }
+                        </MudPaper>
+                    </MudItem>
+                </MudGrid>
+            </MudItem>
+            <MudItem Class="my-0" xs="4" Style="border:solid 1px green;">
+                <MudGrid Spacing="0">
+                    <MudItem Class="" xs="12"><div class="ee-product-price">@ProductDetails.Price.ToString("C")</div></MudItem>
+                    <MudItem Class="mt-2" xs="12"><div class="ee-product-itemid">Item # @ProductDetails.ItemId</div></MudItem>
+                    <MudItem Class="px-2 mt-4" xs="12"><MudButton ButtonType="ButtonType.Button" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.AddShoppingCart" Color="Color.Dark" FullWidth="true" Style="white-space:nowrap;">Add To Cart</MudButton></MudItem>
+                </MudGrid>
+            </MudItem>
+        </MudGrid>
+    </MudPaper>*@
+}
+
+
+
+@*<MudPaper MaxWidth="800px" Class="mx-auto mt-10 pa-2" Elevation="3">*@
+@*    <div class="container mx-auto" style="width:1000px">
+        <div class="row">
+            <div class="col-12 ee-product-name" style="border:solid 1px red;">@ProductDetails.Name</div>
+            <div class="col-12 ee-product-description" style="border:solid 1px green;">@ProductDetails.Description</div>
+            <div class="col-12 ee-product-id" style="border:solid 1px blue;">Item Id: @ProductDetails.ItemId</div>
+        </div>
+        <div class="row">
+            <div class="col-9 ee-product-image" style="border:solid 1px red;">Image Here</div>
+            <div class="col-3 ee-product-price">@ProductDetails.Price</div>
+        </div>
+    </div>*@
+@*</MudPaper>*@
+

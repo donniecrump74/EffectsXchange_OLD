@@ -1,0 +1,59 @@
+﻿@page "/product/{Type:int}/{Id:long}"
+
+<style>
+    .grid-row {
+
+    }
+        .grid-row:hover {
+            background-color: aliceblue;
+            cursor: pointer;
+        }
+</style>
+
+@if (!NoResults) {
+    <MudPaper Elevation="0" Outlined="true" Class="mt-5 mx-5 mb-1 px-2 py-2 d-flex justify-space-between flex-grow-1">
+        <MudPaper Elevation="0" Outlined="false" Class="ma-0 pa-0">
+            <MudSelect T="int"
+                       Value="@SortBy"
+                       Class="flex-none"
+                       ListClass="ee-product-sort"
+                       PopoverClass="ee-product-sort"
+                       Margin="Margin.Dense"
+                       Dense="true"
+                       Label="Sort By"
+                       Variant="Variant.Outlined"
+                       Style="font-size:12px !important;"
+                       AnchorOrigin="Origin.BottomCenter">
+                <MudSelectItem Value="1" Style="font-size:12px !important;">Price - Low to High</MudSelectItem>
+                <MudSelectItem Value="2">Price - High to Low</MudSelectItem>
+                <MudSelectItem Value="3">Brand</MudSelectItem>
+                <MudSelectItem Value="4">Popularity</MudSelectItem>
+                <MudSelectItem Value="5">Customer Rating</MudSelectItem>
+            </MudSelect>
+        </MudPaper>
+        <MudPaper Elevation="0" Outlined="false" Class="ma-0 pa-0 align-self-center">
+            <div class="align-self-center ee-product-total">Showing @ProductCountStart - @ProductCountEnd of @TotalProducts Products</div>
+        </MudPaper>
+        <MudPaper Elevation="0" Outlined="false" Class="ma-0 pa-0 d-flex align-self-center">
+            <div><MudIconButton Class="mr-1" Size="Size.Small" Icon="@Icons.Material.Filled.KeyboardDoubleArrowLeft"></MudIconButton></div>
+            <div class="align-self-center ee-product-total">Page @PageCountStart of @PageCountEnd</div>
+            <div><MudIconButton Class="ml-1" Size="Size.Small" Icon="@Icons.Material.Filled.KeyboardDoubleArrowRight"></MudIconButton></div>
+        </MudPaper>
+    </MudPaper>
+    <MudPaper Elevation="0" Outlined="true" Class="mx-5">
+        <div class="ee-product-wrapper ma-1">
+            @foreach (var item in ProductList) {
+                string image = Program.ImageAsset + item.Folder + "/" + item.Image + item.ImageExtension;
+
+                <div class="ee-product-item ma-0" @onclick="@(() => GoToProduct(item.Id))">
+                    <div class="ee-product-name">@item.Name</div>
+                    <div class="ee-product-image"><MudImage Fluid="true" Style="height:100%" ObjectFit="ObjectFit.Contain" Src="@image" Alt="@item.Name" Elevation="0" Class="pa-1" /></div>
+                    <div class="ee-product-price">@item.Price.ToString("C")</div>
+                    <div class="ee-product-condition">@item.ConditionDescription</div>
+                </div>
+            }
+        </div>
+    </MudPaper>
+} else {
+    <MudPaper Elevation="2" Class="mx-auto mt-10 d-flex justify-center align-center ee-no-record" Width="350px" Height="150px">No Records Found</MudPaper>
+}

@@ -1,0 +1,22 @@
+﻿@page "/Login"
+@using System.ComponentModel.DataAnnotations
+
+<MudPaper Elevation="0" Outlined="true" Class="mx-auto mt-10" Width="300px">
+    <EditForm Model="@login" OnValidSubmit="OnValidSubmit">
+        <DataAnnotationsValidator />
+        <MudGrid>
+            <MudItem xs="12">
+                <MudCard>
+                    <MudCardContent>
+                        <MudTextField Label="Email" @bind-Value="login.EmailAddress" For="@(() => login.EmailAddress)" />
+                        <MudTextField Label="Password" Class="mt-3" @bind-Value="login.Password" For="@(() => login.Password)" InputType="InputType.Password" OnKeyUp="PasswordChanged" />
+                    </MudCardContent>
+                    <MudCardActions Class="pb-5">
+                        <MudButton Size="Size.Small" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Dark" Class="mx-auto">Login</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+    </EditForm>
+</MudPaper>
+

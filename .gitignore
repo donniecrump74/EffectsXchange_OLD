@@ -1,0 +1,23 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/EffectsXchange/.vs/EffectsXchange
+/EffectsXchange/EffectsXchangeApi/bin/Debug/net7.0
+/EffectsXchange/EffectsXchangeApi/obj/Debug
+/EffectsXchange/EffectsXchangeDataAccess/bin
+/EffectsXchange/EffectsXchangeApi/obj/Release/net7.0
+/EffectsXchange/EffectsXchangeDataAccess/obj/Debug
+/EffectsXchange/EffectsXchangeDataAccess/obj/Release/net7.0
+/EffectsXchange/EffectsXchangeShared/bin
+/EffectsXchange/EffectsXchangeShared/obj/Release/net7.0
+/EffectsXchange/EffectsXchangeShared/obj/Debug
+/EffectsXchange/EffectsXchangeWeb/bin/Debug/net7.0
+/EffectsXchange/EffectsXchangeWeb/bin/Release/net7.0
+/EffectsXchange/EffectsXchangeWeb/obj/Debug
+/EffectsXchange/EffectsXchangeWeb/obj/publish/win-x64
+/EffectsXchange/EffectsXchangeWeb/obj/Release/net7.0
+/EffectsXchange/EffectsXchangeApi/bin/Debug/net8.0
+/EffectsXchange/EffectsXchangeWeb/bin/Debug/net8.0
+/EffectsXchange/.vs/ProjectEvaluation
